@@ -3,14 +3,21 @@
 Para usar la App se necesita:
 
 Crear el entorno virtual: 
-pip install virtualenv
-virtualenv venv
 
-Activar el entorno Virtual ./venv/Script/activate
-una vez activado instalar todo:
+* pip install virtualenv
 
-pip install django
-pip install pymysql
-pip install cryptography
+* virtualenv venv
 
+Activar el entorno Virtual 
+
+* ./venv/Script/activate
+
+Una vez activado el entorno virtual instalar todo:
+
+* pip install django
+
+* pip install pymysql
+
+* pip install cryptography
+			
 
