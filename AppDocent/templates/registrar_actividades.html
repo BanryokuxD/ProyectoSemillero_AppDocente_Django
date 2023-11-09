@@ -1,0 +1,66 @@
+<!-- moduloDocente/registrar_actividades.html -->
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/estilos1.css' %}">
+    <title>Módulo Docente</title>
+</head>
+<body>
+    <header class="top-bar">
+        <img src="{% static 'images/Ulogo2.png' %}" alt="Ulogo2">
+        <div class="module-name">
+            Módulo docente
+        </div>
+    </header>
+    <div class="page">
+        <div class="container">
+            <!-- Contenedor de tarjetas a la izquierda de la página -->
+            <div class="cards-container">
+                <!-- Tarjeta 0 -->
+                <div class="card" onclick="toggleDetails('tarjeta0Details')">
+                    <h2>Datos docente</h2>
+                    <p>Registre sus datos</p>
+                </div>
+                <!-- Tarjeta 1 Opción de cargar cursos para el usuario administrador -->
+                <div class="card" onclick="toggleDetails('tarjeta1Details')">
+                    <h2>Registrar actividad docente</h2>
+                    <p>Registre los espacios académicos</p>
+                </div>
+            </div>
+            <!-- Contenedor de detalles a la derecha -->
+            <div class="details-container">
+                <div class="details" id="tarjeta0Details">
+                    <h2>Datos docente</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_type" value="form_datos_docente">
+                        {{ form_datos_docente.non_field_errors }}
+                        {{ form_datos_docente.as_p }}
+                        <button type="submit" class="button">Registrar Datos</button>
+                    </form>
+                </div>
+                
+                <div class="details" id="tarjeta1Details">
+                    <h2>Registrar actividad docente</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_type" value="form_actividades">
+                        {{ form_actividades.non_field_errors }}
+                        {{ form_actividades.as_p }}
+
+                        
+                        <h2>Actividades de APOYO A LA DOCENCIA</h2>
+                        <button type="submit" class="button">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'JS/JS.admi.js' %}"></script>
+</body>
+</html>
+{% endblock %}

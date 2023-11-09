@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/login_styles.css">
+    <title>UPN Planes de Trabajo - Login</title>
+</head>
+<body>
+    <div id="loginContainer">
+        <div id="loginBox">
+            <img src="/static/images/Ulogo.png" alt="LogoU" id="logo">
+            <form method="POST">
+                {% csrf_token %} 
+                {{error}}
+            <div class="input-container">
+                <input type="text" id="username" placeholder="Usuario" name="username" required>
+                <input type="password" id="password" placeholder="Contraseña" name="password" required>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <button type="submit">Iniciar sesión</button>
+            </form></form>
+        </div>
+    </div>
+    <script src=""></script>
+</html>
+{% endblock %}

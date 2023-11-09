@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/estilos1.css' %}" rel="stylesheet">
+    <title>Módulo Administrador</title>
+</head>
+<body>
+    <header class="top-bar">
+        <img src="{% static 'images/Ulogo2.png' %}" alt="Ulogo2">
+        <div class="module-name">
+            Modúlo Administrador
+        </div>
+    </header>
+    <div class="page">
+        
+
+        <div class="container">
+            <!-- Contenedor de tarjetas a la izquierda de la página-->
+            <div class="cards-container">
+                <!-- Tarjeta 1 Opción de cargar cursos para el usuarioadministrador-->
+                <div class="card" onclick="toggleDetails('tarjeta1Details')">
+                    <h2>Cargar cursos</h2>
+                    <p>Ingrese los espacios académicos</p>
+                </div>
+
+                <!-- Tarjeta 2 (repite el mismo patrón) -->
+                <div class="card" onclick="toggleDetails('tarjeta2Details')">
+                    <h2>Consultar planes de trabajo</h2>
+                    <p>Planes de trabajo cargados por docentes</p>
+                </div>
+
+                <!-- Tarjeta 3 (repite el mismo patrón) -->
+                <div class="card" onclick="toggleDetails('tarjeta3Details')">
+                    <h2>Modificar planes de trabajo</h2>
+                    <p>Planes de trabajo cargados por docentes</p>
+                </div>
+            </div>
+
+            <!-- Contenedor de detalles a la derecha -->
+            <div class="details-container">
+                <div class="details" id="tarjeta1Details">
+                    <h2>Registrar Curso</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-group">
+                            <label for="{{ form.codigo.id_for_label }}">Código:</label>
+                            {{ form.codigo }}
+                            {{ form.codigo.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+                            {{ form.nombre }}
+                            {{ form.nombre.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.horasSemana.id_for_label }}">Horas a la Semana:</label>
+                            {{ form.horasSemana }}
+                            {{ form.horasSemana.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.nivel.id_for_label }}">Nivel:</label>
+                            {{ form.nivel }}
+                            {{ form.nivel.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.proyecto_curricular.id_for_label }}">Proyecto Curricular:</label>
+                            {{ form.proyecto_curricular }}
+                            {{ form.proyecto_curricular.errors }}
+                        </div>
+                        <button type="submit">Registrar Curso</button>
+                    </form>
+                </div>
+
+                <!-- Detalles para Tarjeta 2 (repite el mismo patrón) -->
+                <div class="details" id="tarjeta2Details">
+                    <h2>Detalles de Tarjeta 2</h2>
+                    <!-- Contenido de detalles para Tarjeta 2 -->
+                </div>
+
+                <!-- Detalles para Tarjeta 3 (repite el mismo patrón) -->
+                <div class="details" id="tarjeta3Details">
+                    <h2>Detalles de Tarjeta 3</h2>
+                    <!-- Contenido de detalles para Tarjeta 3 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'JS/JS.admi.js' %}"></script>
+
+</body>
+</html>

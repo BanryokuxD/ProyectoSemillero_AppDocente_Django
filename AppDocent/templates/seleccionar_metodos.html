@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modulo administrador</title>
+</head>
+<body>
+    <h1>Modulo administrador</h1>
+    <form>
+        {% csrf_token %}
+        <label for="consultar"><a href="{% url 'consultar_planes_de_trabajo' %}">Consultar Planes de Trabajo</a></label><br>
+        <label for="modificar"><a href="#">Modificar Planes de Trabajo</a></label><br>
+        <label for="cargar"><a href="{% url 'registrar_curso_cargar' %}">Cargar Cursos</a></label><br><br>
+    </form>
+</body>
+</html>
